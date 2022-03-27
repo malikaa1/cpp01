@@ -8,5 +8,15 @@ HumanB::HumanB(std::string name)
 }
 void HumanB::attack()
 {
-    std::cout << this->name << "attacks with their" << weapon.getType();
+    std::cout << this->name << "attacks with their" << weapon.getType() << std::endl;
+}
+
+void HumanB::setWeapon(Weapon weapon)
+{
+    this->weapon = weapon;
+}
+
+HumanB::~HumanB()
+{
+    return;
 }
