@@ -7,9 +7,9 @@ int main(int ac, char **av)
     std::string s1 = av[2];
     std::string s2 = av[3];
     std::string fileName = av[1];
-    std::ifstream file (fileName, std::ifstream::in);
-    if (validate_args(s1, s2, file))
-        return my_replace(s1, s2, file, fileName);
+    std::ifstream file (fileName);
+    if (validate_args(s1, s2))
+        return my_replace(s1, s2, fileName, file);
     else
         return 1;
 }
