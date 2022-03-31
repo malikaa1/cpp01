@@ -1,15 +1,5 @@
 #include "replace.hpp"
 
-Replacer::Replacer(char *fileName)
-{
-    this->fileName = fileName;
-}
-
-Replacer::~Replacer()
-{
-    return;
-}
-
 int print_error(int i, std::string error)
 {
     std::cout << "Error: " << error << std::endl;
@@ -24,26 +14,26 @@ std::string get_newName(std::string str)
     return str;
 }
 
-bool validate_args(std::string s1, std::string s2)
+bool validate_args(std::string s1, std::string s2, std::string fileName, std::ifstream &file)
 {
-    if (s1.empty() || s2.empty())
+    if (s1.empty() || s2.empty() || fileName.empty())
     {
         print_error(1, "args must not be empty");
         return false;
     }
-    // if (!file.is_open())
-    // {
-    //     print_error(1, "cat not open file");
-    //     return false;
-    // }
+    if (!file.is_open())
+    {
+        print_error(1, "cat not open file");
+        return false;
+    }
     return true;
 }
 
 int my_replace(std::string s1, std::string s2, std::string fileName, std::ifstream &file)
 {
-    size_t pos;
+    size_t pos = 0;
     std::string newName = get_newName(fileName);
-    std::ofstream newFile(newName);
+    std::ofstream newFile(newName.c_str());
     for (std::string line; std::getline(file, line);)
     {
         pos = line.find(s1);

@@ -6,13 +6,13 @@
 #    By: mrahmani <mrahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 13:50:59 by mrahmani          #+#    #+#              #
-#    Updated: 2022/03/30 22:51:24 by mrahmani         ###   ########.fr        #
+#    Updated: 2022/03/30 22:43:44 by mrahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	sed
+NAME	=	Harl
 
-SRCS	=	main.cpp replace.cpp
+SRCS	=	main.cpp Harl.cpp
 
 OBJS	=	${SRCS:.cpp=.o}
 
