@@ -34,12 +34,22 @@ void Harl::error(void)
 void Harl::complain(std::string level)
 {
     std::map<std::string, Harl::PtrToFn> _map;
-    _map["debug"] = &Harl::debug;
-    _map["info"] = &Harl::info;
-    _map["warning"] = &Harl::warning;
-    _map["error"] = &Harl::error;
-    Harl x;
-    PtrToFn d = _map[level];
-    if (d != NULL)
-        (x.*d)();
+    _map["0debug"] = &Harl::debug;
+    _map["1info"] = &Harl::info;
+    _map["2warning"] = &Harl::warning;
+    _map["3error"] = &Harl::error;
+    std::map<std::string, Harl::PtrToFn>::iterator it;
+    for (it = _map.begin(); it != _map.end(); ++it)
+    {
+        if (it->first.find(level) != std::string::npos)
+        {
+            while (it != _map.end())
+            {
+                Harl x;
+                (x.*it->second)();
+                it++;
+            }
+            break;
+        }
+    }
 }
