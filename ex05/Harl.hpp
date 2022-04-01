@@ -9,6 +9,8 @@ private:
     void warning(void);
     void error(void);
 
+    typedef void (Harl::* PtrToFn) (void);
+
 public:
     Harl();
     ~Harl();
