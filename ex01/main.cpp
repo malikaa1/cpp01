@@ -3,10 +3,11 @@
 int main()
 {
     int i = 0;
-    Zombie *zom = zombieHorde(3, "foo");
-    while (i < 3)
+    int N = 3;
+    Zombie *zom = zombieHorde(N, "foo");
+    while (i < N)
     {
-        zom->announce();
+        zom[i].announce();
         i++;
     }
     delete[] zom;

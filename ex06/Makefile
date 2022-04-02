@@ -6,7 +6,7 @@
 #    By: mrahmani <mrahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/01 17:27:33 by mrahmani          #+#    #+#              #
-#    Updated: 2022/04/01 17:27:34 by mrahmani         ###   ########.fr        #
+#    Updated: 2022/04/02 23:37:15 by mrahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS	=	main.cpp Harl.cpp
 
 OBJS	=	${SRCS:.cpp=.o}
 
-CC	=	c++
+CC	=	clang++
 
 RM	=	rm -f
 

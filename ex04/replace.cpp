@@ -16,16 +16,31 @@ std::string get_newName(std::string str)
 
 bool validate_args(std::string s1, std::string s2, std::string fileName, std::ifstream &file)
 {
-    if (s1.empty() || s2.empty() || fileName.empty())
+    std::string newFile;
+    std::string line;
+
+    for (std::string line; std::getline(file, line);)
     {
-        print_error(1, "args must not be empty");
-        return false;
+        newFile = newFile + line;
     }
+    file.clear();
+    file.seekg(0);
     if (!file.is_open())
     {
         print_error(1, "cat not open file");
         return false;
     }
+    if (newFile.empty())
+    {
+        print_error(1, "empty file or permission denied");
+        return 1;
+    }
+    if (s1.empty() || s2.empty() || fileName.empty())
+    {
+        print_error(1, "args must not be empty");
+        return false;
+    }
+
     return true;
 }
 
@@ -34,6 +49,7 @@ int my_replace(std::string s1, std::string s2, std::string fileName, std::ifstre
     size_t pos = 0;
     std::string newName = get_newName(fileName);
     std::ofstream newFile(newName.c_str());
+    std::cout << newName << std::endl;
     for (std::string line; std::getline(file, line);)
     {
         pos = line.find(s1);

@@ -6,7 +6,7 @@
 #    By: mrahmani <mrahmani@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/15 13:50:59 by mrahmani          #+#    #+#              #
-#    Updated: 2022/03/27 13:16:33 by mrahmani         ###   ########.fr        #
+#    Updated: 2022/04/02 23:37:00 by mrahmani         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS	=	main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
 
 OBJS	=	${SRCS:.cpp=.o}
 
-CC	=	c++
+CC	=	clang++
 
 RM	=	rm -f
 

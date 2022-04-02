@@ -8,6 +8,7 @@ Zombie::Zombie(std::string _name)
 
 Zombie::~Zombie()
 {
+    std::cout << "cleaning " << this->name << std::endl;
     return;
 }
 

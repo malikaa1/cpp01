@@ -4,7 +4,7 @@ SRCS	=	main.cpp Zombie.cpp zombieHorde.cpp
 
 OBJS	=	${SRCS:.cpp=.o}
 
-CC	=	c++
+CC	=	clang++
 
 RM	=	rm -f
 
