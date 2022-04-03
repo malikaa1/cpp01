@@ -25,22 +25,18 @@ bool validate_args(std::string s1, std::string s2, std::string fileName, std::if
     }
     file.clear();
     file.seekg(0);
-    if (!file.is_open())
+    if (s1.empty() || s2.empty() || fileName.empty())
     {
-        print_error(1, "cat not open file");
+        print_error(1, "args must not be empty");
+        file.close();
         return false;
     }
     if (newFile.empty())
     {
         print_error(1, "empty file or permission denied");
-        return 1;
-    }
-    if (s1.empty() || s2.empty() || fileName.empty())
-    {
-        print_error(1, "args must not be empty");
+        file.close();
         return false;
     }
-
     return true;
 }
 
@@ -52,8 +48,7 @@ int my_replace(std::string s1, std::string s2, std::string fileName, std::ifstre
     std::cout << newName << std::endl;
     for (std::string line; std::getline(file, line);)
     {
-        pos = line.find(s1);
-        if (pos != std::string::npos)
+        while (( pos = line.find(s1, pos)) != std::string::npos)
         {
             line.erase(pos, s1.length());
             line.insert(pos, s2);

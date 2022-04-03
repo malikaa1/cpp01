@@ -1,5 +1,5 @@
 #ifndef HARL_CPP
-#define HARL_HPP
+#define HARL_CPP
 #include <iostream>
 class Harl
 {

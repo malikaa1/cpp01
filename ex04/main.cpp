@@ -8,6 +8,11 @@ int main(int ac, char **av)
     std::string s2(av[3]);
     std::string fileName(av[1]);
     std::ifstream file(fileName.c_str());
+    if (!file.is_open())
+    {
+        print_error(1, "cat not open file");
+        return 1;
+    }
     if (validate_args(s1, s2, fileName, file))
         return my_replace(s1, s2, fileName, file);
     else

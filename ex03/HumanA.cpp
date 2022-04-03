@@ -4,7 +4,6 @@
 HumanA::HumanA(std::string name, Weapon& w): weapon(w)
 {
     this->name = name;
-    this->weapon = weapon;
 }
 
 HumanA::~HumanA()

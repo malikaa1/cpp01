@@ -23,7 +23,7 @@ RM	=	rm -f
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 %.o: %.cpp
-	$(CC) -g $(CFLAGS) -c $< -o ${<:.cpp=.o}
+	$(CC) $(CFLAGS) -c $< -o ${<:.cpp=.o}
 
 
 all:	${NAME}
